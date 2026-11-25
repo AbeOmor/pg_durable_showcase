@@ -1,0 +1,9 @@
+{
+  "editor.wordWrap": "on",
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true,
+  "markdown.preview.breaks": true,
+  "files.associations": {
+    "*.sql": "sql"
+  }
+}
