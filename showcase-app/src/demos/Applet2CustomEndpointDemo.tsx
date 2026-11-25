@@ -10,6 +10,7 @@ import {
 } from 'lucide-react';
 import { APPLET2_STEPS, SHIPMENT_ROWS } from '../data/hackathonData';
 import { DemoWalkthroughRail } from '../components/DemoWalkthroughRail';
+import { SOURCES } from '../data/repo';
 import { WindowFrame } from '../components/WindowFrame';
 
 export const Applet2CustomEndpointDemo: React.FC = () => {
@@ -290,7 +291,8 @@ export const Applet2CustomEndpointDemo: React.FC = () => {
 
       {/* RIGHT: Walkthrough Rail */}
       <DemoWalkthroughRail
-        scriptName="02/demo_walkthrough.sql"
+        scriptPath={SOURCES.applet2.walkthrough}
+        appletPath={SOURCES.applet2.applet}
         steps={APPLET2_STEPS}
         currentIndex={stepIdx}
         onSelectStep={(idx) => {

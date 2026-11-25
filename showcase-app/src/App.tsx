@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { Database } from 'lucide-react';
+import { Database, Github } from 'lucide-react';
+import { REPO_URL } from './data/repo';
 import { OverviewPage, type ActiveRoute } from './components/OverviewPage';
 import { Applet1TuneDemo } from './demos/Applet1TuneDemo';
 import { Applet2CustomEndpointDemo } from './demos/Applet2CustomEndpointDemo';
@@ -81,6 +82,9 @@ export const App: React.FC = () => {
           <div className="nav-meta">
             <span className="status-dot" />
             <span>Live-verified telemetry</span>
+            <a className="nav-repo-link" href={REPO_URL} target="_blank" rel="noreferrer" title="Source code on GitHub">
+              <Github size={14} /> Source
+            </a>
           </div>
         </div>
       </header>

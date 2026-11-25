@@ -6,15 +6,20 @@ import {
   ChevronRight,
   Code2,
   Copy,
+  ExternalLink,
   Pause,
   Play,
   RotateCcw,
 } from 'lucide-react';
 import { Meter } from '../kit';
 import type { LayerTag, WalkthroughStep } from '../data/hackathonData';
+import { shortPath, sourceUrl } from '../data/repo';
 
 interface DemoWalkthroughRailProps {
-  scriptName: string;
+  /** Repo-relative path of the walkthrough script, linked to GitHub. */
+  scriptPath: string;
+  /** Repo-relative path of the applet definition the walkthrough runs. */
+  appletPath?: string;
   steps: WalkthroughStep[];
   currentIndex: number;
   onSelectStep: (idx: number) => void;
@@ -43,7 +48,8 @@ const LAYER_META: Record<LayerTag, { label: string; pillClass: string; boxClass:
 };
 
 export const DemoWalkthroughRail: React.FC<DemoWalkthroughRailProps> = ({
-  scriptName,
+  scriptPath,
+  appletPath,
   steps,
   currentIndex,
   onSelectStep,
@@ -79,13 +85,31 @@ export const DemoWalkthroughRail: React.FC<DemoWalkthroughRailProps> = ({
   return (
     <aside className="walkthrough-panel" aria-label="Interactive Demo Walkthrough">
       <div className="walkthrough-controls">
-        <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
-          <span className="pill pill-neutral mono" style={{ fontSize: 11 }}>
-            {scriptName}
-          </span>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 6, flexWrap: 'wrap' }}>
+          <a
+            className="pill pill-neutral mono source-link"
+            style={{ fontSize: 11 }}
+            href={sourceUrl(scriptPath)}
+            target="_blank"
+            rel="noreferrer"
+            title={`Open ${scriptPath} on GitHub`}
+          >
+            {shortPath(scriptPath)} <ExternalLink size={10} />
+          </a>
           <span style={{ fontSize: 12, color: 'var(--pg-text-faint)' }}>
             Step {currentIndex + 1} / {steps.length}
           </span>
+          {appletPath && (
+            <a
+              className="source-text-link mono"
+              href={sourceUrl(appletPath)}
+              target="_blank"
+              rel="noreferrer"
+              title={`Open ${appletPath} on GitHub`}
+            >
+              applet source <ExternalLink size={10} />
+            </a>
+          )}
         </div>
         <div style={{ display: 'flex', alignItems: 'center', gap: 5 }}>
           <button

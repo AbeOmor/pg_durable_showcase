@@ -13,6 +13,7 @@ import {
   CUSTOMER_NOTES,
 } from '../data/hackathonData';
 import { DemoWalkthroughRail } from '../components/DemoWalkthroughRail';
+import { SOURCES } from '../data/repo';
 import { KnowledgeGraphSvg } from '../components/KnowledgeGraphSvg';
 import { WindowFrame } from '../components/WindowFrame';
 
@@ -510,9 +511,8 @@ export const Applet3KnowledgeGraphDemo: React.FC = () => {
 
       {/* RIGHT: Walkthrough Rail */}
       <DemoWalkthroughRail
-        scriptName={
-          isPipelines ? '03/demo_walkthrough_ai_pipelines.sql' : '03/demo_walkthrough.sql'
-        }
+        scriptPath={(isPipelines ? SOURCES.applet3Pipelines : SOURCES.applet3Durable).walkthrough}
+        appletPath={(isPipelines ? SOURCES.applet3Pipelines : SOURCES.applet3Durable).applet}
         steps={steps}
         currentIndex={stepIdx}
         onSelectStep={(idx) => {

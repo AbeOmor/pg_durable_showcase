@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import {
   ArrowRight,
+  Code2,
   Cpu,
   Database,
   GitBranch,
@@ -12,6 +13,7 @@ import {
 import { WindowFrame } from './WindowFrame';
 import { HeroStage } from '../stages/HeroStage';
 import { BatchTile, GraphTile, TuneTile } from '../stages/TileStages';
+import { SOURCES, folderUrl } from '../data/repo';
 
 export type ActiveRoute = 'overview' | 'applet1' | 'applet2' | 'applet3';
 
@@ -136,13 +138,24 @@ export const OverviewPage: React.FC<OverviewPageProps> = ({ onNavigate }) => {
                 <span className="mono" style={{ fontSize: 11, color: 'var(--pg-text-faint)' }}>
                   6 demo steps · interactive signal
                 </span>
-                <button
-                  type="button"
-                  className="btn btn-primary btn-sm"
-                  onClick={() => onNavigate('applet1')}
-                >
-                  Try Demo <ArrowRight size={13} />
-                </button>
+                <div className="applet-card-actions">
+                  <a
+                    className="btn btn-secondary btn-sm"
+                    href={folderUrl(SOURCES.applet1.folder)}
+                    target="_blank"
+                    rel="noreferrer"
+                    title={`Open ${SOURCES.applet1.folder}/ on GitHub`}
+                  >
+                    <Code2 size={13} /> Source
+                  </a>
+                  <button
+                    type="button"
+                    className="btn btn-primary btn-sm"
+                    onClick={() => onNavigate('applet1')}
+                  >
+                    Try Demo <ArrowRight size={13} />
+                  </button>
+                </div>
               </div>
             </div>
           </article>
@@ -171,13 +184,24 @@ export const OverviewPage: React.FC<OverviewPageProps> = ({ onNavigate }) => {
                 <span className="mono" style={{ fontSize: 11, color: 'var(--pg-text-faint)' }}>
                   6 demo steps · payload inspector
                 </span>
-                <button
-                  type="button"
-                  className="btn btn-primary btn-sm"
-                  onClick={() => onNavigate('applet2')}
-                >
-                  Try Demo <ArrowRight size={13} />
-                </button>
+                <div className="applet-card-actions">
+                  <a
+                    className="btn btn-secondary btn-sm"
+                    href={folderUrl(SOURCES.applet2.folder)}
+                    target="_blank"
+                    rel="noreferrer"
+                    title={`Open ${SOURCES.applet2.folder}/ on GitHub`}
+                  >
+                    <Code2 size={13} /> Source
+                  </a>
+                  <button
+                    type="button"
+                    className="btn btn-primary btn-sm"
+                    onClick={() => onNavigate('applet2')}
+                  >
+                    Try Demo <ArrowRight size={13} />
+                  </button>
+                </div>
               </div>
             </div>
           </article>
@@ -206,13 +230,24 @@ export const OverviewPage: React.FC<OverviewPageProps> = ({ onNavigate }) => {
                 <span className="mono" style={{ fontSize: 11, color: 'var(--pg-text-faint)' }}>
                   Interactive graph + hybrid search
                 </span>
-                <button
-                  type="button"
-                  className="btn btn-primary btn-sm"
-                  onClick={() => onNavigate('applet3')}
-                >
-                  Try Demo <ArrowRight size={13} />
-                </button>
+                <div className="applet-card-actions">
+                  <a
+                    className="btn btn-secondary btn-sm"
+                    href={folderUrl(SOURCES.applet3Durable.folder)}
+                    target="_blank"
+                    rel="noreferrer"
+                    title={`Open ${SOURCES.applet3Durable.folder}/ on GitHub`}
+                  >
+                    <Code2 size={13} /> Source
+                  </a>
+                  <button
+                    type="button"
+                    className="btn btn-primary btn-sm"
+                    onClick={() => onNavigate('applet3')}
+                  >
+                    Try Demo <ArrowRight size={13} />
+                  </button>
+                </div>
               </div>
             </div>
           </article>

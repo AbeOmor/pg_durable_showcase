@@ -11,6 +11,7 @@ import {
 } from 'lucide-react';
 import { APPLET1_STEPS } from '../data/hackathonData';
 import { DemoWalkthroughRail } from '../components/DemoWalkthroughRail';
+import { SOURCES } from '../data/repo';
 import { WindowFrame } from '../components/WindowFrame';
 
 type TuneOutcome = 'pending' | 'approved' | 'rejected' | 'rolled_back';
@@ -392,7 +393,8 @@ ON durable_hack.orders
 
       {/* RIGHT: Walkthrough Rail */}
       <DemoWalkthroughRail
-        scriptName="01/demo_walkthrough.sql"
+        scriptPath={SOURCES.applet1.walkthrough}
+        appletPath={SOURCES.applet1.applet}
         steps={APPLET1_STEPS}
         currentIndex={stepIdx}
         onSelectStep={handleSelectStep}
